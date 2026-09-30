@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FinTrack - Analytics Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <header>
+            <h1>📊 FinTrack Dashboard</h1>
+            <p>Track expenses and visualize data with custom HTML5 Canvas rendering.</p>
+        </header>
+
+        <main class="dashboard-grid">
+            <!-- Left Panel: Input Form & History -->
+            <section class="panel control-panel">
+                <h2>Add New Transaction</h2>
+                <form id="transaction-form">
+                    <div class="form-group">
+                        <label for="description">Description</label>
+                        <input type="text" id="description" placeholder="e.g., Groceries" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="amount">Amount ($)</label>
+                        <input type="number" id="amount" step="0.01" placeholder="0.00" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="category">Category</label>
+                        <select id="category">
+                            <option value="Food">Food</option>
+                            <option value="Utilities">Utilities</option>
+                            <option value="Entertainment">Entertainment</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn-submit">Add Transaction</button>
+                </form>
+
+                <div class="history-container">
+                    <h3>Recent History</h3>
+                    <ul id="transaction-list"></ul>
+                </div>
+            </section>
+
+            <!-- Right Panel: Canvas Analytics -->
+            <section class="panel chart-panel">
+                <h2>Visual Analytics</h2>
+                <div class="metrics">
+                    <div class="metric-card">
+                        <span>Total Spent</span>
+                        <h3 id="total-amount">$0.00</h3>
+                    </div>
+                </div>
+                <div class="canvas-container">
+                    <canvas id="analyticsChart" width="400" height="300"></canvas>
+                </div>
+                <div class="chart-legend" id="chart-legend"></div>
+            </section>
+        </main>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
